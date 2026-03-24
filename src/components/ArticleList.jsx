@@ -200,9 +200,12 @@ export default function ArticleList() {
       </div>
       <style>{`
         .note-header-qr-trigger:hover .note-qr-popover {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(5px);
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(10px) !important;
+        }
+        #notes .container-wide {
+          overflow: visible !important;
         }
       `}</style>
     </section>
