@@ -35,7 +35,7 @@ export const demoProjects = [
     featured: true,
   },
   {
-    _id: 'p1',
+    _id: 'p2',
     name: 'YomiPlay',
     description: '用音频字幕播放器的方式学习日语。沉浸式日语听读，影子跟读训练工具。',
     link: 'https://yomiplay.toshiki.tech',
