@@ -34,80 +34,52 @@ export default function Links() {
             },
           ].map((link, i) => (
             <Reveal key={link.label} delay={i * 100}>
-              <div 
-                style={{ 
-                  position: 'relative',
-                  height: '100%' 
-                }}
-                className="link-card-root"
-              >
-                {link.href ? (
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ textDecoration: 'none', display: 'block', height: '100%' }}
-                  >
-                    <LinkCard link={link} />
-                  </a>
-                ) : (
-                  <div style={{ cursor: 'pointer', height: '100%' }}>
-                    <LinkCard link={link} />
-                  </div>
-                )}
-
-                {link.qr && (
-                  <div 
-                    className="qr-popover"
+              <div className="link-card-root">
+                <div
+                  className="card"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '1.5rem',
+                    padding: '2rem',
+                    textAlign: 'center'
+                  }}
+                >
+                  <div
                     style={{
-                      position: 'absolute',
-                      bottom: 'calc(100% + 1.5rem)',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: '200px',
-                      background: 'white',
-                      padding: '1rem',
-                      border: '1px solid var(--border)',
-                      boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
-                      pointerEvents: 'none',
-                      opacity: 0,
-                      visibility: 'hidden',
-                      transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-                      zIndex: 2000,
+                      width: '100%',
+                      maxWidth: '180px',
+                      aspectRatio: '1/1',
+                      overflow: 'hidden',
+                      borderRadius: '4px',
+                      border: '1px solid var(--border)'
                     }}
                   >
                     <img 
                       src={link.qr} 
                       alt={link.label} 
-                      style={{ width: '100%', height: 'auto', display: 'block' }} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
                     />
-                    <p style={{ 
-                      fontSize: '0.7rem', 
-                      textAlign: 'center', 
-                      marginTop: '0.75rem',
-                      color: 'var(--ink-muted)',
-                      fontWeight: 500
-                    }}>
-                      扫一扫关注
+                  </div>
+                  
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                      <span style={{ width: '18px', height: '18px', color: 'var(--ink-muted)' }}>{link.icon}</span>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)' }}>
+                        {link.label}
+                      </h3>
+                    </div>
+                    <p style={{ fontSize: '0.8125rem', color: 'var(--ink-muted)' }}>
+                      {link.desc}
                     </p>
                   </div>
-                )}
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
       </div>
-
-      <style>{`
-        .link-card-root:hover .qr-popover {
-          opacity: 1;
-          visibility: visible;
-          transform: translateX(-50%) translateY(-10px);
-        }
-        #links .container-wide {
-          overflow: visible !important;
-        }
-      `}</style>
     </section>
   )
 }
