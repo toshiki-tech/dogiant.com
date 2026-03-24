@@ -69,7 +69,7 @@ export default function Hero() {
               className="hero-subtitle animate-fade-up delay-300"
               style={{ marginTop: '1.5rem', maxWidth: '480px' }}
             >
-              在东京写代码，也记录这个时代的细节
+              在东京写代码，顺便记录点这个时代的细节
             </p>
 
             {/* CTA buttons */}
@@ -82,7 +82,7 @@ export default function Hero() {
                 flexWrap: 'wrap',
               }}
             >
-              <a href="/#projects" className="btn-solid">
+              <a href="/#projects" className="btn-ghost">
                 作品演示
                 <ArrowIcon />
               </a>
