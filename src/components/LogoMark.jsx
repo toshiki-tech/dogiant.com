@@ -17,16 +17,24 @@ export default function LogoMark({ size = 28, color = 'var(--ink)' }) {
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="大道之行也"
+      aria-label="大道之行也 - 泰卦"
     >
-      {/* 1. Thick vertical bar — presence */}
-      <rect x="3" y="5" width="4.5" height="22" fill={color} />
+      {/* 泰卦 (Tài) - ☷ over ☰ — Harmony and Great Peace */}
+      
+      {/* Upper Trigram: ☷ (Earth, Receptive) */}
+      <rect x="2" y="4" width="12" height="1.5" fill={color} />
+      <rect x="18" y="4" width="12" height="1.5" fill={color} />
+      
+      <rect x="2" y="8" width="12" height="1.5" fill={color} />
+      <rect x="18" y="8" width="12" height="1.5" fill={color} />
+      
+      <rect x="2" y="12" width="12" height="1.5" fill={color} />
+      <rect x="18" y="12" width="12" height="1.5" fill={color} />
 
-      {/* 2. Primary horizontal — the way, extending outward from the midpoint */}
-      <rect x="11" y="15.4" width="18" height="1.4" fill={color} />
-
-      {/* 3. Secondary hairline below — shorter, quieter, an echo */}
-      <rect x="11" y="20" width="11" height="0.8" fill={color} opacity="0.35" />
+      {/* Lower Trigram: ☰ (Heaven, Creative) */}
+      <rect x="2" y="18" width="28" height="1.5" fill={color} />
+      <rect x="2" y="22" width="28" height="1.5" fill={color} />
+      <rect x="2" y="26" width="28" height="1.5" fill={color} />
     </svg>
   )
 }

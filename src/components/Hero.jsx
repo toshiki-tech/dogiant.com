@@ -49,8 +49,7 @@ export default function Hero() {
         >
           {/* Left: main copy */}
           <div>
-            {/* Main title — refactored for better design feel */}
-            <div className="animate-fade-up delay-200" style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <div className="animate-fade-up delay-200" style={{ display: 'flex', alignItems: 'baseline' }}>
               <h1
                 style={{
                   fontFamily: 'var(--font-serif)',
@@ -61,29 +60,8 @@ export default function Hero() {
                   lineHeight: 1.1,
                 }}
               >
-                大道
-                <span style={{ fontSize: '0.8em', verticalAlign: 'super', opacity: 0.8 }}>之</span>
-                行也
+                大道之行也
               </h1>
-
-              {/* A minimalist design mark — like an official seal but subtle */}
-              <div
-                style={{
-                  width: '24px',
-                  height: '24px',
-                  border: '1.5px solid var(--accent)',
-                  color: 'var(--accent)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.8rem',
-                  fontFamily: 'var(--font-serif)',
-                  paddingTop: '2px', // optical adjustment
-                  opacity: 0.6,
-                }}
-              >
-                道
-              </div>
             </div>
 
             {/* Subtitle */}
@@ -94,26 +72,9 @@ export default function Hero() {
               在东京写代码，也记录这个时代的细节
             </p>
 
-            {/* One-liner */}
-            <p
-              className="animate-fade-up delay-400"
-              style={{
-                marginTop: '1rem',
-                fontSize: '0.9rem',
-                color: 'var(--ink-muted)',
-                fontFamily: 'var(--font-serif)',
-                lineHeight: 1.8,
-                maxWidth: '420px',
-              }}
-            >
-              身在棋局，心观棋盘。
-              <br />
-              程序员 · 观察者 · 记录者
-            </p>
-
             {/* CTA buttons */}
             <div
-              className="animate-fade-up delay-500"
+              className="animate-fade-up delay-400"
               style={{
                 display: 'flex',
                 gap: '0.75rem',
@@ -121,26 +82,8 @@ export default function Hero() {
                 flexWrap: 'wrap',
               }}
             >
-              <a
-                href="https://v.weixin.qq.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-              >
-                <VideoIcon />
-                看视频
-              </a>
-              <a
-                href="https://mp.weixin.qq.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-              >
-                <ReadIcon />
-                读文章
-              </a>
               <a href="/#projects" className="btn-solid">
-                我的项目
+                作品演示
                 <ArrowIcon />
               </a>
             </div>

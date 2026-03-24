@@ -30,7 +30,7 @@ export default function ArticleList() {
 
   return (
     <section id="notes" className="section">
-      <div className="container-narrow">
+      <div className="container-wide">
         {/* Section header */}
         <div
           style={{
@@ -38,6 +38,7 @@ export default function ArticleList() {
             justifyContent: 'space-between',
             alignItems: 'flex-end',
             marginBottom: '3rem',
+            maxWidth: '100%'
           }}
         >
           <Reveal>
@@ -59,10 +60,8 @@ export default function ArticleList() {
           </Reveal>
 
           <Reveal delay={100}>
-            <a
-              href="https://mp.weixin.qq.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <div 
+              className="note-header-qr-trigger"
               style={{
                 fontSize: '0.75rem',
                 letterSpacing: '0.08em',
@@ -70,14 +69,46 @@ export default function ArticleList() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.35rem',
+                cursor: 'pointer',
+                position: 'relative'
               }}
             >
-              公众号
+              扫码关注
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </a>
+
+              {/* QR Popover for Notes Header */}
+              <div 
+                className="note-qr-popover"
+                style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 1rem)',
+                  right: 0,
+                  width: '180px',
+                  background: 'white',
+                  padding: '1rem',
+                  border: '1px solid var(--border)',
+                  boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)',
+                  pointerEvents: 'none',
+                  opacity: 0,
+                  visibility: 'hidden',
+                  transition: 'all 0.3s var(--ease-out)',
+                  zIndex: 2000,
+                  textAlign: 'center'
+                }}
+              >
+                <img 
+                  src="/assets/contact/wechat-official.jpg" 
+                  alt="公众号二维码" 
+                  style={{ width: '100%', display: 'block' }} 
+                />
+                <p style={{ fontSize: '0.65rem', marginTop: '0.5rem', color: 'var(--ink-muted)', letterSpacing: '0.05em' }}>
+                  扫码关注公众号
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
 
@@ -87,7 +118,7 @@ export default function ArticleList() {
             载入中…
           </div>
         ) : (
-          <div>
+          <div style={{ maxWidth: '800px' }}>
             {posts.map((post, i) => (
               <Reveal key={post._id} delay={i * 80}>
                 <Link
@@ -167,6 +198,13 @@ export default function ArticleList() {
           </div>
         )}
       </div>
+      <style>{`
+        .note-header-qr-trigger:hover .note-qr-popover {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(5px);
+        }
+      `}</style>
     </section>
   )
 }

@@ -13,11 +13,9 @@ export default function ProjectList() {
     sanityClient
       .fetch(projectsQuery)
       .then((data) => { if (data?.length) setProjects(data) })
-      .catch(() => {})
+      .catch(() => { })
   }, [])
-
   const featured = projects.filter((p) => p.featured)
-  const others   = projects.filter((p) => !p.featured)
 
   return (
     <section
@@ -30,7 +28,7 @@ export default function ProjectList() {
         <Reveal>
           <div style={{ marginBottom: '3rem' }}>
             <p className="section-label" style={{ marginBottom: '0.5rem' }}>
-              项目 / Lab
+              实验 / LAB
             </p>
             <h2
               style={{
@@ -40,7 +38,7 @@ export default function ProjectList() {
                 color: 'var(--ink)',
               }}
             >
-              做过的事
+              争取写点有用的代码
             </h2>
           </div>
         </Reveal>
@@ -48,63 +46,18 @@ export default function ProjectList() {
         {/* Featured projects */}
         {featured.length > 0 && (
           <div style={{ marginBottom: '3rem' }}>
-            <Reveal>
-              <p
-                style={{
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--ink-muted)',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                重点项目
-              </p>
-            </Reveal>
 
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
                 gap: '1.5rem',
+                alignItems: 'stretch'
               }}
             >
               {featured.map((p, i) => (
-                <Reveal key={p._id} delay={i * 100}>
+                <Reveal key={p._id} delay={i * 100} style={{ display: 'flex' }}>
                   <ProjectCard project={p} size="large" />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Other projects */}
-        {others.length > 0 && (
-          <div>
-            <Reveal>
-              <p
-                style={{
-                  fontSize: '0.7rem',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--ink-muted)',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                实验 / 小工具
-              </p>
-            </Reveal>
-
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-                gap: '1rem',
-              }}
-            >
-              {others.map((p, i) => (
-                <Reveal key={p._id} delay={i * 80}>
-                  <ProjectCard project={p} size="small" />
                 </Reveal>
               ))}
             </div>
@@ -123,7 +76,13 @@ function ProjectCard({ project, size = 'small' }) {
       href={project.link || '#'}
       target={project.link && project.link !== '#' ? '_blank' : undefined}
       rel="noopener noreferrer"
-      style={{ textDecoration: 'none', display: 'block' }}
+      style={{
+        textDecoration: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        width: '100%'
+      }}
     >
       <article
         className="card"

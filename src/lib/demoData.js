@@ -24,13 +24,28 @@ export const demoPosts = [
     excerpt: '日语学习工具太多了，但大多数在解释"怎么做"，而不是让你感受"做这件事的过程"。于是我想做一个不一样的。',
     tags: ['产品', 'YomiPlay', '日语'],
   },
+  {
+    _id: '4',
+    title: 'YomiMark 背后：让日语阅读重拾“丝滑”',
+    slug: { current: 'yomimark-v1-launch' },
+    publishedAt: '2025-12-01',
+    excerpt: '如何让日语的长难句瞬间变得易读？YomiMark 尝试通过本地运行的形态素解析与外来词智能追踪，给出一个极其轻量级的答案。',
+    tags: ['开源', 'Chrome 插件', '日语'],
+  },
 ]
 
 export const demoProjects = [
   {
+    _id: 'p4',
+    name: 'YomiMark',
+    description: '瞬间为网页汉字添加振假名，并智能识别外来词的英文原词。100% 本地解析，保护隐私且极速响应。',
+    link: 'https://chromewebstore.google.com/detail/yomimark-%E2%80%94-instant-furiga/ldfcjpnjokhdoihapfcnimchieaofhin',
+    featured: true,
+  },
+  {
     _id: 'p1',
     name: 'YomiPlay',
-    description: '用听音乐的方式学日语。沉浸式日语听读训练工具，支持字幕跟读与发音对比。',
+    description: '用听音乐的方式学习日语。沉浸式日语听读训练工具，支持字幕跟读与发音对比。',
     link: 'https://yomiplay.com',
     featured: true,
   },
