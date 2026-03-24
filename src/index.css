@@ -1,0 +1,277 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ─────────────────────────────────── */
+:root {
+  --ink:       #1a1a1a;
+  --ink-soft:  #4a4a4a;
+  --ink-muted: #888888;
+  --paper:     #fafaf8;
+  --paper-alt: #f2f1ee;
+  --border:    #e2e0db;
+  --accent:    #3d5a99;   /* logo blue, low-saturation */
+  --accent-dim:#6b82b0;
+  --warm:      #c8a96e;   /* subtle warm gold */
+
+  --font-sans: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
+  --font-serif:'Noto Serif SC', 'Georgia', serif;
+
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Base Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--paper);
+  color: var(--ink);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+p { color: var(--ink-soft); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s var(--ease-out), opacity 0.2s var(--ease-out);
+}
+
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── Animations ──────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s var(--ease-out) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--ease-out) both;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ── Layout ──────────────────────────────────────────── */
+.container-narrow {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Divider ────────────────────────────────────────── */
+.divider {
+  width: 40px;
+  height: 1px;
+  background: var(--ink-muted);
+  margin: 2rem 0;
+}
+
+/* ── Section spacing ─────────────────────────────────── */
+.section {
+  padding: 6rem 0;
+}
+
+.section-sm {
+  padding: 4rem 0;
+}
+
+/* ── Nav ─────────────────────────────────────────────── */
+.nav-link {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  transition: color 0.2s var(--ease-out);
+}
+.nav-link:hover { color: var(--ink); }
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--border);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: rgba(26,26,26,0.03);
+}
+
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  border: 1px solid var(--ink);
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+.btn-solid:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Card ────────────────────────────────────────────── */
+.card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  transition: border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+.card:hover {
+  border-color: var(--ink-muted);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+/* ── Article item ────────────────────────────────────── */
+.article-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: opacity 0.2s var(--ease-out);
+}
+.article-item:first-child { padding-top: 0; }
+.article-item:last-child { border-bottom: none; }
+.article-item:hover { opacity: 0.7; }
+
+/* ── Hero title ───────────────────────────────────────── */
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Tag ─────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--ink-muted);
+}
+
+/* ── Section label ───────────────────────────────────── */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-family: var(--font-sans);
+}
+
+/* ── Logo image ────────────────────────────────────────── */
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* ── Prose (article body) ─────────────────────────────── */
+.prose-custom {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+.prose-custom p { margin-bottom: 1.5em; }
+.prose-custom h2 { color: var(--ink); margin: 2em 0 0.5em; font-size: 1.4rem; }
+.prose-custom h3 { color: var(--ink); margin: 1.5em 0 0.5em; font-size: 1.1rem; }
+.prose-custom blockquote {
+  border-left: 2px solid var(--accent);
+  margin: 2em 0;
+  padding: 0.5em 1.5em;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+.prose-custom img { width: 100%; margin: 2em 0; }
+.prose-custom a { color: var(--accent); border-bottom: 1px solid transparent; }
+.prose-custom a:hover { border-color: var(--accent-dim); }
+
+/* ── Footer quote ─────────────────────────────────────── */
+.footer-quote {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .section { padding: 4rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .container-wide { padding: 0 1.25rem; }
+}
