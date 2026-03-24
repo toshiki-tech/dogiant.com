@@ -64,9 +64,9 @@ export default function Links() {
                   </div>
                   
                   <div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                      <span style={{ width: '18px', height: '18px', color: 'var(--ink-muted)' }}>{link.icon}</span>
-                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.125rem', color: 'var(--ink)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '0.4rem' }}>
+                      <span style={{ width: '22px', height: '22px', color: 'var(--ink-muted)', flexShrink: 0 }}>{link.icon}</span>
+                      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', color: 'var(--ink)', margin: 0 }}>
                         {link.label}
                       </h3>
                     </div>
@@ -139,7 +139,7 @@ function GithubIcon() {
 
 function VideoIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" width="36" height="36">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" style={{ width: '100%', height: '100%' }}>
       <polygon points="5 3 19 12 5 21 5 3" />
     </svg>
   )
@@ -147,7 +147,7 @@ function VideoIcon() {
 
 function WechatIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" width="36" height="36">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" style={{ width: '100%', height: '100%' }}>
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   )
