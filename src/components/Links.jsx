@@ -32,12 +32,6 @@ export default function Links() {
               qr: '/assets/contact/wechat-channels.jpg',
               icon: <VideoIcon />,
             },
-            {
-              label: 'GitHub',
-              desc: '开源 / 代码',
-              href: 'https://github.com/toshiki-tech',
-              icon: <GithubIcon />,
-            },
           ].map((link, i) => (
             <Reveal key={link.label} delay={i * 100}>
               <div 
