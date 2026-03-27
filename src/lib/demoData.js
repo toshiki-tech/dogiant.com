@@ -31,14 +31,14 @@ export const demoProjects = [
     _id: 'p1',
     name: 'YomiMark',
     description: '为网页汉字添加振假名，并智能识别标注外来词的英文原词。100%本地解析，保护隐私且极速响应。',
-    link: 'https://chromewebstore.google.com/detail/yomimark-%E2%80%94-instant-furiga/ldfcjpnjokhdoihapfcnimchieaofhin',
+    link: 'https://www.toshiki.tech/zh/p/yomimark',
     featured: true,
   },
   {
     _id: 'p2',
     name: 'YomiPlay',
     description: '用音频字幕播放器的方式学习日语。沉浸式日语听读，影子跟读训练工具。',
-    link: 'https://yomiplay.toshiki.tech',
+    link: 'https://www.toshiki.tech/zh/p/yomiplay',
     featured: true,
   },
 ]
