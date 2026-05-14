@@ -41,4 +41,11 @@ export const demoProjects = [
     link: 'https://www.toshiki.tech/zh/p/yomiplay',
     featured: true,
   },
+  {
+    _id: 'p3',
+    name: 'YomiNote',
+    description: '为日语阅读与写作而生的 Markdown 桌面编辑器。自动为汉字标注振假名，为片假名外来词附上英文原词，完全离线运行。',
+    link: 'https://www.toshiki.tech/zh/p/yominote',
+    featured: true,
+  },
 ]

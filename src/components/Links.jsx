@@ -32,6 +32,13 @@ export default function Links() {
               qr: '/assets/contact/wechat-channels.jpg',
               icon: <VideoIcon />,
             },
+            {
+              label: '小红书',
+              desc: '图文 / 日常笔记',
+              qr: '/assets/contact/xiaohongshu.jpg',
+              icon: <XiaohongshuIcon />,
+              qrFit: 'contain',
+            },
           ].map((link, i) => (
             <Reveal key={link.label} delay={i * 100}>
               <div className="link-card-root">
@@ -53,13 +60,14 @@ export default function Links() {
                       aspectRatio: '1/1',
                       overflow: 'hidden',
                       borderRadius: '4px',
-                      border: '1px solid var(--border)'
+                      border: '1px solid var(--border)',
+                      background: link.qrFit === 'contain' ? 'var(--paper)' : 'transparent',
                     }}
                   >
-                    <img 
-                      src={link.qr} 
-                      alt={link.label} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                    <img
+                      src={link.qr}
+                      alt={link.label}
+                      style={{ width: '100%', height: '100%', objectFit: link.qrFit || 'cover', display: 'block' }}
                     />
                   </div>
                   
@@ -149,6 +157,17 @@ function WechatIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" style={{ width: '100%', height: '100%' }}>
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  )
+}
+
+function XiaohongshuIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" style={{ width: '100%', height: '100%' }}>
+      <path d="M4 4h13l3 3v13H4z" />
+      <line x1="8" y1="10" x2="16" y2="10" />
+      <line x1="8" y1="14" x2="16" y2="14" />
+      <line x1="8" y1="18" x2="12" y2="18" />
     </svg>
   )
 }
